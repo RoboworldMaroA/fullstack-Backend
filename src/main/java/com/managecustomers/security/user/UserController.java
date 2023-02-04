@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class UserController {
     private final AuthenticationService service;
 

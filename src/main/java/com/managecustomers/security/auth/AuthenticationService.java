@@ -32,22 +32,30 @@ public class AuthenticationService {
 
     //This method allows us to save to database and get generated token
     public AuthenticationResponse register(RegisterRequest request) {
-        //create user object of that request
-         var user = User.builder()
-                 .firstName(request.getFirstname())
-                 .lastName(request.getLastname())
-                 .email(request.getEmail())
-                 //this need inject PasswordEncoder
-                 .password(passwordEncoder.encode(request.getPassword()))
-                 .role(Role.USER)
-                 .build();
-        repository.save(user);
+        //check if user email is empty
+        if(request.getEmail().equals(" ")){
+            System.out.println("Email can not be empty.");
+        }
 
-        //to get a token need inject jwt class
-        var jwtToken =  jwtService.generateToken(user)  ;
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
+            //create user object of that request
+            var user = User.builder()
+                    .firstName(request.getFirstname())
+                    .lastName(request.getLastname())
+                    .email(request.getEmail())
+                    //this need inject PasswordEncoder
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .role(Role.USER)
+                    .build();
+            repository.save(user);
+
+            //to get a token need inject jwt class
+            var jwtToken = jwtService.generateToken(user);
+            return AuthenticationResponse.builder()
+                    .token(jwtToken)
+                    .build();
+
+
+
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
@@ -92,7 +100,7 @@ public class AuthenticationService {
                     user.setLastName(request.getLastName());
                     user.setFirstName(request.getFirstName());
                     user.setEmail(request.getEmail());
-                    user.setPassword(request.getPassword());
+                    user.setPassword(passwordEncoder.encode(request.getPassword()));
                     return repository.save(user);
                 })
                 .orElseGet(() -> {
@@ -100,7 +108,7 @@ public class AuthenticationService {
                     user.setLastName(request.getLastName());
                     user.setFirstName(request.getFirstName());
                     user.setEmail(request.getEmail());
-                    user.setPassword(request.getPassword());
+                    user.setPassword(passwordEncoder.encode(request.getPassword()));
                     return repository.save(user);
                 });
 
