@@ -44,8 +44,10 @@ public class SecurityConfiguration {
       @Bean
       CorsConfigurationSource corsConfigurationSource(){
           CorsConfiguration configuration = new CorsConfiguration();
+
           String allowsOrigin = "http://127.0.0.1:5501";
-          configuration.setAllowedOrigins(List.of(allowsOrigin));
+          String allowsOrigin2 = "https://manage-customers-4x6n9.ondigitalocean.app";
+          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2));
           configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "HEAD", "OPTIONS","DELETE"));
           configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","accept", "accept-language", "content-type",  "authorization", "moduleid", "tabid", "x-dnn-moniker"));
 
