@@ -25,12 +25,16 @@ public class User implements UserDetails {
 
     private String firstName;
 
-
     private String lastName;
 
     private String email;
 
     private String password;
+
+
+    //add variable used in smart luggage
+    private String userName;
+
 
     @Enumerated(EnumType.STRING)
     private Role role;
