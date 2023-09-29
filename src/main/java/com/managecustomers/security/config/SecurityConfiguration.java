@@ -49,7 +49,8 @@ public class SecurityConfiguration {
           String allowsOrigin2 = "https://manage-customers-4x6n9.ondigitalocean.app";
           String allowsOrigin3 = "https://localhost:3000";
           String allowsOrigin4 = "http://localhost:3000";
-          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4));
+          String allowsOrigin5 = "http://127.0.0.1:5502";
+          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5));
           configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "HEAD", "OPTIONS","DELETE"));
           configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","accept", "accept-language", "content-type",  "authorization", "moduleid", "tabid", "x-dnn-moniker"));
 
