@@ -51,7 +51,7 @@ public class SecurityConfiguration {
           String allowsOrigin4 = "http://localhost:3000";
           String allowsOrigin5 = "http://127.0.0.1:5502";
           String allowsOriginForSmartLuggageFrontend = "https://smartluggage-ijzs3.ondigitalocean.app";
-          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5));
+          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5,allowsOriginForSmartLuggageFrontend));
           configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "HEAD", "OPTIONS","DELETE"));
           configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","accept", "accept-language", "content-type",  "authorization", "moduleid", "tabid", "x-dnn-moniker"));
 
