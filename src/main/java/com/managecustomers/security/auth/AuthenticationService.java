@@ -36,6 +36,11 @@ public class AuthenticationService {
         if(request.getEmail().equals(" ")){
             System.out.println("Email can not be empty.");
         }
+        //check if user exist
+        Optional<User> userOptional = repository.findByEmail(request.getEmail());
+        if (userOptional.isPresent()){
+            throw new IllegalStateException("Email Exist");
+        }
 
             //create user object of that request
             var user = User.builder()
