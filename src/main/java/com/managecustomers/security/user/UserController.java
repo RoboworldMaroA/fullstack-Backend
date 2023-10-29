@@ -3,6 +3,7 @@ package com.managecustomers.security.user;
 
 import com.managecustomers.security.auth.AuthenticationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,13 @@ import java.util.List;
 //@CrossOrigin(origins = "*")
 public class UserController {
     private final AuthenticationService service;
+
+    //Display welcome with the info of the server site
+    @GetMapping("/")
+    public String welcome() {
+        return ("<h1>Welcome in the backend CRUD, SPRING SECURITY with JWT used on SmartLuggage </h1>");
+    }
+
 
     //printing list of the users GET method
     @GetMapping("/displayUsers")

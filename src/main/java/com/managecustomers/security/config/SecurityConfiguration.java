@@ -29,7 +29,7 @@ public class SecurityConfiguration {
                 .cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**",("/displayUsers"),("/displayUsers/**"), ("/api/v1/trip"),("/api/v1/trip/**")).permitAll()
+                .requestMatchers("/","/api/v1/customer","/api/v1/auth/**",("/displayUsers"),("/displayUsers/**"), ("/api/v1/trip"),("/api/v1/trip/**")).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
