@@ -3,12 +3,20 @@ package com.managecustomers.security.user;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
 
 @Configuration
 public class UserConfig {
+
+    private final PasswordEncoder passwordEncoder;
+
+    public UserConfig(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
 
     @Bean
     CommandLineRunner commandLineRunnerUser(UserRepository userRepository) {
@@ -18,7 +26,7 @@ public class UserConfig {
                     "MaroAdmin",
                     "Augustyn",
                     "maro@o2.pl",
-                    "pass",
+                    passwordEncoder.encode("pass"),
                     "userName",
                     Role.USER
 
