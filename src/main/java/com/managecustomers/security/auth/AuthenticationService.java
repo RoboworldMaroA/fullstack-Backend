@@ -39,7 +39,7 @@ public class AuthenticationService {
         //check if user exist
         Optional<User> userOptional = repository.findByEmail(request.getEmail());
         if (userOptional.isPresent()){
-            throw new IllegalStateException("Email Exist");
+            throw new IllegalStateException("Email exist in database.");
         }
 
             //create user object of that request
