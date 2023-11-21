@@ -50,7 +50,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
          //we want to extract jwd token and this token is after a "Bearer " so after 7 place,
              // so we use substring to get this value
              jwt = authHeader.substring(7);
-          //to check if the user is in database, JWT Srvice extract used data and compare with this what is on the server
+          //to check if the user is in database, JWT Service extract used data and compare with this what is on the server
             // to get a user email from JWT we have to create class which has ability to extract that
              userEmail = jwtService.extractUsername(jwt);
              //this part is implemented after implementation JwtService
