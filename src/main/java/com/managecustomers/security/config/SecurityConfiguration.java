@@ -52,7 +52,8 @@ public class SecurityConfiguration {
           String allowsOrigin5 = "http://127.0.0.1:5502";
           String allowsOriginOnLocalHostHttps = "https://127.0.0.1:5502";
           String allowsOriginForSmartLuggageFrontend = "https://smartluggage-ijzs3.ondigitalocean.app";
-          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5, allowsOriginOnLocalHostHttps,allowsOriginForSmartLuggageFrontend));
+          String allowsOriginForSmartLuggageFrontendGoogleCloud = "https://smartluggage2023.ew.r.appspot.com";
+          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5, allowsOriginOnLocalHostHttps,allowsOriginForSmartLuggageFrontend,allowsOriginForSmartLuggageFrontendGoogleCloud));
           configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "HEAD", "OPTIONS","DELETE"));
           configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","accept", "accept-language", "content-type",  "authorization", "moduleid", "tabid", "x-dnn-moniker"));
 
