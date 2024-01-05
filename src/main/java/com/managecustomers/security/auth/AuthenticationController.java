@@ -1,5 +1,7 @@
 package com.managecustomers.security.auth;
 
+import com.managecustomers.security.trip.Trip;
+import com.managecustomers.security.trip.TripService;
 import com.managecustomers.security.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ public class AuthenticationController {
 
     //inject class
     private final AuthenticationService service;
+    private final TripService tripService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
@@ -40,6 +43,21 @@ public class AuthenticationController {
     public List<User> getUsers() {
         return service.getAllUsers();
     }
+
+
+    //Get Trip data from secured link, only authenticated users can get access to the database
+    @GetMapping(path = ("/trip"))
+    public List<Trip> getTrip() {
+        return tripService.getTrip();
+    }
+
+
+    //Delete user only if is authenticated
+    @DeleteMapping(path = "/trip/{tripId}")
+    public void deleteTrip(@PathVariable("tripId") Integer Id) {
+        tripService.deleteTrip(Long.valueOf(Id));
+    }
+
 
 
 }

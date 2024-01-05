@@ -26,7 +26,7 @@ public class TripController {
         this.tripService = tripService;
     }
 
-    //printing list of the students GET method
+    //printing list of the trip GET method
     @GetMapping(path = ("/api/v1/trip"))
     public List<Trip> getTrip() {
 
@@ -56,8 +56,8 @@ public class TripController {
 
     //**********   DELETE     *******************************************
     @DeleteMapping(path = "/api/v1/trip/{tripId}")
-    public void deleteTrip(@PathVariable("tripId") Long Id) {
-        tripService.deleteTrip(Id);
+    public void deleteTrip(@PathVariable("tripId") Integer Id) {
+        tripService.deleteTrip(Long.valueOf(Id));
     }
 
 

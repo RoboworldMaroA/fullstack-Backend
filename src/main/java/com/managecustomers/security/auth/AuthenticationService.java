@@ -1,6 +1,7 @@
 package com.managecustomers.security.auth;
 
 import com.managecustomers.security.config.JwtService;
+import com.managecustomers.security.trip.TripRepository;
 import com.managecustomers.security.user.Role;
 import com.managecustomers.security.user.User;
 import com.managecustomers.security.user.UserRepository;
@@ -24,6 +25,7 @@ public class AuthenticationService {
 
      //get access to database
     private final UserRepository repository;
+
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
@@ -91,7 +93,7 @@ public class AuthenticationService {
 
         boolean exists = repository.existsById(userId);
         if (!exists){
-            throw new IllegalStateException("`customer with id: "+ userId+" does not exist.");
+            throw new IllegalStateException("Customer with id: "+ userId+" does not exist.");
         }
         //otherwise, - method deleteById is from SpringFramework
         repository.deleteById(userId);
@@ -119,4 +121,6 @@ public class AuthenticationService {
 
 
     }
+
+
 }
