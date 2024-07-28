@@ -36,3 +36,4 @@ build/
 ### ignore application.properties ###
 /src/main/resources/applicationDeploy.properties
 /src/main/resources/applicationDevelopment.yml
+/src/main/resources/applicationOldDeploy.properties

@@ -23,7 +23,7 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> register(
         @RequestBody RegisterRequest request
     ){
-        //this register method need to be implemented i AuthenticationService class
+        //this register method need to be implemented in AuthenticationService class
         return ResponseEntity.ok(service.register(request));
     }
 
@@ -57,6 +57,7 @@ public class AuthenticationController {
     public void deleteTrip(@PathVariable("tripId") Integer Id) {
         tripService.deleteTrip(Long.valueOf(Id));
     }
+
 
 
 

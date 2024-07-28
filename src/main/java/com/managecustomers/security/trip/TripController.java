@@ -22,7 +22,6 @@ public class TripController {
 
     @Autowired
     public TripController(TripService tripService) {
-        //this.studentService = new StudentService();//this is incorrect so use annotation to inject student service
         this.tripService = tripService;
     }
 
