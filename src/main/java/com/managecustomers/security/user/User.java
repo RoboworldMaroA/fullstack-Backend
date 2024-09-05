@@ -1,5 +1,6 @@
 package com.managecustomers.security.user;
 
+import com.managecustomers.security.form.Form;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @GeneratedValue
+    @Column(name="user_id")
     private Integer id;
 
     private String firstName;
@@ -35,6 +37,16 @@ public class User implements UserDetails {
     //add variable used in smart luggage
     private String userName;
 
+
+    //Add a Form to the User because we want to have access to the form that user have created
+    //This creates foreign key in User class with the name of the Form column
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "fk_formId")
+
+    //I want to have One to Many
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_user_id", referencedColumnName = "user_id" )
+    private List<Form> form;
 
     @Enumerated(EnumType.STRING)
     private Role role;

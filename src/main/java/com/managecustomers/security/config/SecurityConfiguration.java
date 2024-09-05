@@ -29,7 +29,13 @@ public class SecurityConfiguration {
                 .cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/","/api/v1/customer","/api/v1/auth/**",("/displayUsers"),("/displayUsers/**"), ("/api/v1/trip"),("/api/v1/trip/**"),("/api/jwt/trip/**"),("/api/v1/form/**")).permitAll()
+                .requestMatchers("/","/api/v1/customer","/api/v1/auth/**",("/displayUsers"),
+                        ("/displayUsers/**"), ("/api/v1/trip"),("/api/v1/trip/**"),("/api/jwt/trip/**"),
+                        ("/api/v1/form/**"),
+                        ("/registerUserAndForm"),
+                        ("/api/v1/email"),("/api/v1/email/**"),("/api/jwt/email/**")
+
+                        ).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -53,7 +59,11 @@ public class SecurityConfiguration {
           String allowsOriginOnLocalHostHttps = "https://127.0.0.1:5502";
           String allowsOriginForSmartLuggageFrontend = "https://smartluggage-ijzs3.ondigitalocean.app";
           String allowsOriginForSmartLuggageFrontendGoogleCloud = "https://smartluggage2023.ew.r.appspot.com";
-          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5, allowsOriginOnLocalHostHttps,allowsOriginForSmartLuggageFrontend,allowsOriginForSmartLuggageFrontendGoogleCloud));
+          String allowsOriginLocalHost = "http://127.0.0.1:5500";
+          String allowsOriginGo4EatDevelopment = "https://go4eat-mih6g.ondigitalocean.app";
+          configuration.setAllowedOrigins(List.of(allowsOrigin,allowsOrigin2,allowsOrigin3,allowsOrigin4,allowsOrigin5, allowsOriginOnLocalHostHttps,
+                  allowsOriginForSmartLuggageFrontend,allowsOriginForSmartLuggageFrontendGoogleCloud,
+                  allowsOriginLocalHost, allowsOriginGo4EatDevelopment));
           configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "HEAD", "OPTIONS","DELETE"));
           configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","accept", "accept-language", "content-type",  "authorization", "moduleid", "tabid", "x-dnn-moniker"));
 

@@ -1,12 +1,14 @@
 package com.managecustomers.security.form;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
-@Entity(name = "Form")
-@Table
-public class Form {
+@Data
+@Entity
+@Table(name = "form")
+public class Form{
 
     //variable id is generated automatically
     @Id
@@ -21,8 +23,7 @@ public class Form {
 
     )
 
-    @Column(name="formId",
-            updatable = false)
+    @Column(name="formId")
     private Long formId;
 
 
@@ -65,6 +66,10 @@ public class Form {
 //    private Boolean trekking;
     private String emailForm;
     private String question1;
+
+
+
+
 //    private Boolean adminPrivileges;
 //    private Boolean payStatus;
 //    private Boolean smallLuggage;
