@@ -36,4 +36,10 @@ build/
 ### ignore application.properties ###
 /src/main/resources/applicationDeploy.properties
 /src/main/resources/applicationDevelopment.yml
-/src/main/resources/applicationOldDeploy.properties
+#/src/main/resources/applicationOldDeploy.properties
+/src/main/resources/applicationDevelopmentInfo.roboworld.pl.yml
+#/src/main/resources/applicationNotOK.properties
+/src/main/resources/application.yml
+/src/main/resources.zip
+
+!**/src/main/resources/*.yml

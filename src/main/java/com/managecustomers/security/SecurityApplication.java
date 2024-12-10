@@ -20,7 +20,7 @@ public class SecurityApplication {
 		SpringApplication.run(SecurityApplication.class, args);
 	}
 
-	//	Data that you will be sending
+	//	Data that you will be sending in the moment that application is running
 	@EventListener(ApplicationReadyEvent.class)
 	public void sendMail(){
 		senderService.sendEmail("marek_augustyn1@o2.pl", "Test 2 info send from spring boot app", "send from backen with spring seciurity app");
