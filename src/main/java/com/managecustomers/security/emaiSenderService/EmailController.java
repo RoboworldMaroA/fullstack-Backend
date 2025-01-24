@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin(origins = {"https://smartluggage.herokuapp.com","https://localhost:3000",
-        "https://smartluggage-ijzs3.ondigitalocean.app","https://smartluggage2023.ew.r.appspot.com"
+        "https://smartluggage-ijzs3.ondigitalocean.app","https://smartluggage2023.ew.r.appspot.com",
+        "https://go4eat.eu", "https://go4eat-mih6g.ondigitalocean.app"
 
 })
 @RestController

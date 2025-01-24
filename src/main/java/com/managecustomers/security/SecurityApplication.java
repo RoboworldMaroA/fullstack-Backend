@@ -20,10 +20,11 @@ public class SecurityApplication {
 		SpringApplication.run(SecurityApplication.class, args);
 	}
 
-	//	Data that you will be sending in the moment that application is running
+	//	Data that you will be sending at the moment that application is running
+	// Unhidden this service if you want to send email that server is on
 	@EventListener(ApplicationReadyEvent.class)
 	public void sendMail(){
-		senderService.sendEmail("marek_augustyn1@o2.pl", "Test 2 info send from spring boot app", "send from backen with spring seciurity app");
+		senderService.sendEmail("marek_augustyn1@o2.pl", "Server is ON", "This message was sent because somebody activated backend application that is used to sending a messages");
 	}
 
 }

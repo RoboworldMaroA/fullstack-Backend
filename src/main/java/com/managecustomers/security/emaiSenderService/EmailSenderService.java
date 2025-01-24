@@ -29,7 +29,7 @@ public class EmailSenderService {
                           String body){
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("info.roboworld.pl@gmail.com");
+        message.setFrom("info.go4eat@gmail.com");
         message.setTo(toEmail);
         message.setText(body);
         message.setSubject(subject);
@@ -46,20 +46,50 @@ public class EmailSenderService {
 
 
     //add email data to database and send an email
+//    public void sendNewEmail(Email email) {
+//
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setFrom("info.go4eat@gmail.com");
+//        message.setTo(email.getToEmail());
+//        message.setText(email.getBody());
+//        message.setSubject(email.getSubject());
+//
+//        mailSender.send(message);
+//
+//        System.out.println("Mail sent successfully from sendNewEmail service... ");
+//
+//        emailRepository.save(email);
+//
+//    }
+
+    //New version sending email to the info@go4eat.eu
     public void sendNewEmail(Email email) {
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("info.roboworld.pl@gmail.com");
+        message.setFrom("info.go4eat@gmail.com");
         message.setTo(email.getToEmail());
-        message.setText(email.getBody());
-        message.setSubject(email.getSubject());
+        message.setText("Thank you for contacting us. This is an automatic reply. We will contact you shortly.");
+//        message.setText(email.getBody());
+//        message.setSubject(email.getSubject());
+        message.setSubject("Thank You for you message");
 
         mailSender.send(message);
         System.out.println("Mail sent successfully from sendNewEmail service... ");
 
         emailRepository.save(email);
-
+        message.setFrom("info.go4eat@gmail.com");
+        message.setTo("info@go4eat.eu");
+        message.setText("You got an message from:  "+ email.getSubject()+
+                "   His email is:  "+email.getToEmail()+
+                "   Message is:  "+email.getBody()
+        );
+        message.setSubject("Email from the Contact Us form on go4eat.eu");
+        mailSender.send(message);
 
     }
+
+
+
+
 }
 

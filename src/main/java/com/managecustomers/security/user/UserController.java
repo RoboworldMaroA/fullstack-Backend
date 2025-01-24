@@ -28,7 +28,8 @@ public class UserController {
     //Display welcome with the info of the server site
     @GetMapping("/")
     public String welcome() {
-        return ("<h1>Welcome in the backend CRUD, SPRING SECURITY with JWT used on SmartLuggage </h1>");
+//        return ("<h1>Welcome in the backend CRUD, SPRING SECURITY with JWT used on SmartLuggage </h1>");
+        return ("<h1>Welcome in the backend CRUD, SPRING SECURITY with JWT used on go4eat.eu </h1>");
     }
 
     //It is used in fullstackBootstrap manage-users web app

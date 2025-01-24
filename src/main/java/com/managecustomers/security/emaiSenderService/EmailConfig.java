@@ -13,9 +13,9 @@ public class EmailConfig {
         return args -> {
             Email welcomEmail = new Email(
                     //,
-                    "marek@o2.pl",
-                    "ssss mmmm",
-                    "sssss mmmmmmm"
+                    "welcome@email",
+                    "Display when server was restarted",
+                    "Display when server was restarted"
             );
             emailRepository.saveAll(List.of(welcomEmail));
 
